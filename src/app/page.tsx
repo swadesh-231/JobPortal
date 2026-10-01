@@ -1,11 +1,16 @@
+import { ApplicationTracker } from "@/components/landing/ApplicationTracker"
 import { FeaturedJobs } from "@/components/landing/FeaturedJobs"
+import { FinalCta } from "@/components/landing/FinalCta"
 import { Hero } from "@/components/landing/Hero"
+import { HowItWorks } from "@/components/landing/HowItWorks"
+import { ProductPreview } from "@/components/landing/ProductPreview"
+import { SmartMatching } from "@/components/landing/SmartMatching"
 import { SocialProof } from "@/components/landing/SocialProof"
+import { Testimonials } from "@/components/landing/Testimonials"
 import { ValueProposition } from "@/components/landing/ValueProposition"
 import { Footer } from "@/components/layout/Footer"
 import { Navbar } from "@/components/layout/Navbar"
 
-/** Composes sections only. */
 export default function Page() {
   return (
     <>
@@ -21,6 +26,12 @@ export default function Page() {
         <SocialProof />
         <FeaturedJobs />
         <ValueProposition />
+        <ProductPreview />
+        <HowItWorks />
+        <SmartMatching />
+        <ApplicationTracker />
+        <Testimonials />
+        <FinalCta />
       </main>
       <Footer />
     </>
