@@ -1,3 +1,4 @@
+import { ThemeToggle } from "@/components/shared/ThemeToggle"
 import { Button } from "@/components/ui/button"
 import {
   NavigationMenu,
@@ -85,6 +86,7 @@ export function Navbar() {
             </NavigationMenuList>
           </NavigationMenu>
           <div className="ml-auto flex items-center gap-2">
+            <ThemeToggle />
             <Button
               variant="ghost"
               size="sm"

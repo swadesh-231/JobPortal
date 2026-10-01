@@ -1,5 +1,4 @@
 import { SOCIAL_ICONS } from "@/components/icons/social"
-import { ThemeToggle } from "@/components/shared/ThemeToggle"
 import { Button } from "@/components/ui/button"
 import { siteConfig } from "@/config/site"
 import { Container } from "./Container"
@@ -63,12 +62,9 @@ export function Footer() {
             ))}
           </nav>
         </div>
-        <div className="mt-10 flex flex-col items-start justify-between gap-4 border-t border-border pt-6 sm:flex-row sm:items-center">
-          <p className="text-body-sm text-muted-foreground">
-            © {new Date().getFullYear()} {siteConfig.name}
-          </p>
-          <ThemeToggle />
-        </div>
+        <p className="mt-10 border-t border-border pt-6 text-body-sm text-muted-foreground">
+          © {new Date().getFullYear()} {siteConfig.name}
+        </p>
       </Container>
     </footer>
   )
