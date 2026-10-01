@@ -1,3 +1,4 @@
+import { FeaturedJobs } from "@/components/landing/FeaturedJobs"
 import { Hero } from "@/components/landing/Hero"
 import { SocialProof } from "@/components/landing/SocialProof"
 import { Footer } from "@/components/layout/Footer"
@@ -17,6 +18,7 @@ export default function Page() {
       <main id="main" tabIndex={-1} className="outline-none">
         <Hero />
         <SocialProof />
+        <FeaturedJobs />
       </main>
       <Footer />
     </>
