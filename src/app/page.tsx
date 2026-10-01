@@ -1,6 +1,7 @@
 import { FeaturedJobs } from "@/components/landing/FeaturedJobs"
 import { Hero } from "@/components/landing/Hero"
 import { SocialProof } from "@/components/landing/SocialProof"
+import { ValueProposition } from "@/components/landing/ValueProposition"
 import { Footer } from "@/components/layout/Footer"
 import { Navbar } from "@/components/layout/Navbar"
 
@@ -19,6 +20,7 @@ export default function Page() {
         <Hero />
         <SocialProof />
         <FeaturedJobs />
+        <ValueProposition />
       </main>
       <Footer />
     </>
