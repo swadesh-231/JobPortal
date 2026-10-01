@@ -1,4 +1,5 @@
 import { Hero } from "@/components/landing/Hero"
+import { SocialProof } from "@/components/landing/SocialProof"
 import { Footer } from "@/components/layout/Footer"
 import { Navbar } from "@/components/layout/Navbar"
 
@@ -15,6 +16,7 @@ export default function Page() {
       <Navbar />
       <main id="main" tabIndex={-1} className="outline-none">
         <Hero />
+        <SocialProof />
       </main>
       <Footer />
     </>
