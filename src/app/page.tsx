@@ -1,3 +1,4 @@
+import { Hero } from "@/components/landing/Hero"
 import { Footer } from "@/components/layout/Footer"
 import { Navbar } from "@/components/layout/Navbar"
 
@@ -12,7 +13,9 @@ export default function Page() {
         Skip to content
       </a>
       <Navbar />
-      <main id="main" tabIndex={-1} className="outline-none"></main>
+      <main id="main" tabIndex={-1} className="outline-none">
+        <Hero />
+      </main>
       <Footer />
     </>
   )
