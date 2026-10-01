@@ -69,7 +69,7 @@ export function FitLine({
       <a
         href={siteConfig.routes.signUp}
         className={cn(
-          "relative z-10 rounded-sm text-label text-primary-text underline-offset-4 outline-none hover:underline focus-visible:ring-2 focus-visible:ring-ring",
+          "relative z-10 -my-2.5 inline-flex min-h-10 items-center rounded-sm text-label text-primary-text underline-offset-4 outline-none hover:underline focus-visible:ring-2 focus-visible:ring-ring",
           className
         )}
       >
