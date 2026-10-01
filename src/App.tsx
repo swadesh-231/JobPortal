@@ -1,6 +1,6 @@
-import Page from '@/app/page'
-import { Toaster } from '@/components/ui/sonner'
-import { TooltipProvider } from '@/components/ui/tooltip'
+import Page from "@/app/page";
+import { Toaster } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
       <Page />
       <Toaster position="bottom-center" />
     </TooltipProvider>
-  )
+  );
 }
 
-export default App
+export default App;
