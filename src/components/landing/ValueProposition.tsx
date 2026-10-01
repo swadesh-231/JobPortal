@@ -1,19 +1,9 @@
 import type { ReactNode } from "react"
-import { ChevronDown, FileText } from "lucide-react"
 import { FitLine } from "@/components/jobs/FitLine"
 import { Section } from "@/components/layout/Section"
+import { ResumeChip } from "@/components/shared/ResumeChip"
 import { StatusBadge } from "@/components/tracker/StatusBadge"
 import { heroJobs } from "@/lib/sample-data"
-
-function ResumeChip() {
-  return (
-    <span className="inline-flex h-8 items-center gap-1.5 rounded-md border border-border-strong bg-card px-3 text-label">
-      <FileText className="size-3.5 text-muted-foreground" aria-hidden />
-      Resume v2
-      <ChevronDown className="size-3.5 text-muted-foreground" aria-hidden />
-    </span>
-  )
-}
 
 const ROWS: { title: string; usual: string; shortlist: string; fragment?: ReactNode }[] = [
   {
