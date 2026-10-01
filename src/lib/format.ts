@@ -2,7 +2,8 @@ import type { Job, JobType, Salary, WorkMode } from "@/types/job"
 
 const DAY = 86_400_000
 const trim = (n: number) => String(Math.round(n * 10) / 10)
-const range = (min: string, max?: string) => (max ? `${min}–${max}` : min)
+const range = (min: number, max: number | undefined, unit: (n: number) => string) =>
+  max === undefined ? unit(min) : `${unit(min)}–${unit(max)}`
 
 /** ₹32–42 LPA; ₹50–70k / month; $120k–150k / yr */
 export function formatSalary(salary: Salary | null) {
@@ -10,12 +11,12 @@ export function formatSalary(salary: Salary | null) {
   const { min, max, currency, period } = salary
   if (currency === "INR" && period === "year") {
     const lakh = (n: number) => trim(n / 100_000)
-    return `₹${range(lakh(min), max && lakh(max))} LPA`
+    return `₹${range(min, max, lakh)} LPA`
   }
   const k = (n: number) => trim(n / 1000)
-  if (currency === "INR") return `₹${range(k(min), max && k(max))}k / month`
+  if (currency === "INR") return `₹${range(min, max, k)}k / month`
   const suffix = period === "year" ? "yr" : "month"
-  return `$${range(`${k(min)}k`, max ? `${k(max)}k` : undefined)} / ${suffix}`
+  return `$${range(min, max, (n) => `${k(n)}k`)} / ${suffix}`
 }
 
 export function formatExperience({ min, max }: Job["experience"]) {
