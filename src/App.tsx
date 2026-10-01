@@ -1,8 +1,13 @@
+import Page from '@/app/page'
+import { Toaster } from '@/components/ui/sonner'
+import { TooltipProvider } from '@/components/ui/tooltip'
+
 function App() {
   return (
-    <main id="main" className="flex min-h-svh flex-col items-center justify-center gap-4">
-      <h1 className="text-h1 font-stretch-semi-condensed">Shortlist</h1>
-    </main>
+    <TooltipProvider>
+      <Page />
+      <Toaster position="bottom-center" />
+    </TooltipProvider>
   )
 }
 
