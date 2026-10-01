@@ -42,12 +42,12 @@ export function formatPosted(iso: string, short = false, now = new Date()) {
   return `Posted ${weeks} ${weeks === 1 ? "week" : "weeks"} ago`
 }
 
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
 /** 12 Sep */
 export function formatDate(iso: string) {
-  return new Intl.DateTimeFormat("en-GB", {
-    day: "numeric",
-    month: "short",
-  }).format(new Date(iso))
+  const date = new Date(iso)
+  return `${date.getDate()} ${MONTHS[date.getMonth()]}`
 }
 
 /** Thu */
