@@ -25,7 +25,7 @@ Every section of the page proves one of three things:
 - Never: all-caps labels, eyebrow labels above headings, one highlighted word in a headline, `·`-joined meta strings, `→` on buttons, "unlock / supercharge / seamless / dream job".
 
 **Visual rules**
-- No gradients, glassmorphism (except navbar blur), illustrations, stock photos, or fake browser dots.
+- No glassmorphism (except navbar blur), illustrations, stock photos, or fake browser dots. One gradient only: the soft `bg-glow` behind the hero and the auth pages.
 - Cards use borders, not shadows. Color only means "you / selected / your action".
 - All visuals are real product UI built from components with sample data.
 
@@ -37,41 +37,41 @@ Every section of the page proves one of three things:
 
 | Token | Light | Dark | Use |
 |---|---|---|---|
-| `background` | `#F5F6F3` | `#0F1113` | Page |
-| `foreground` | `#181B1F` | `#ECEEEA` | Text |
-| `card` | `#FFFFFF` | `#16191C` | Cards, inputs, frames |
-| `popover` | `#FFFFFF` | `#1A1D21` | Menus, dialogs |
-| `primary` | `#2B3AD8` | `#4F5EF0` | Primary button, Fit line, focus |
+| `background` | `#FAFAF7` | `#0C0C0F` | Page |
+| `foreground` | `#17161A` | `#EDEDF0` | Text |
+| `card` | `#FFFFFF` | `#141418` | Cards, inputs, frames |
+| `popover` | `#FFFFFF` | `#18181D` | Menus, dialogs |
+| `primary` | `#5746E0` | `#6352EA` | Primary button, Fit line, focus |
 | `primary-foreground` | `#FFFFFF` | `#FFFFFF` | |
-| `primary-hover` | `#2430BC` | `#6370F6` | |
-| `primary-soft` | `#ECEEFD` | `#1B2050` | Selected rows, Remote badge, matched skills |
-| `primary-soft-foreground` | `#1F2BA8` | `#B9C0FF` | |
-| `primary-text` | `#2B3AD8` | `#8A95FF` | Links |
-| `secondary` | `#E9EBE7` | `#23272C` | Secondary button |
-| `muted` | `#ECEEEA` | `#1E2226` | Neutral badges, skeletons, wells |
-| `muted-foreground` | `#565E66` | `#9AA2AA` | Secondary text |
-| `placeholder` | `#6C747C` | `#80888F` | Input placeholder |
-| `accent` | `#ECEEEA` | `#22262B` | Hover bg (ghost, menu items) |
-| `border` | `#DFE2DC` | `#262A2F` | Cards, dividers |
-| `border-strong` | `#C7CBC5` | `#343A40` | Hover borders, outline buttons |
-| `input` | `#858C93` | `#6F7882` | Form control borders (≥3:1) |
-| `ring` | `#2B3AD8` | `#8A95FF` | Focus ring |
+| `primary-hover` | `#4838C7` | `#7263F0` | |
+| `primary-soft` | `#EFEDFE` | `#221C52` | Selected rows, Remote badge, matched skills |
+| `primary-soft-foreground` | `#3D2FB0` | `#C3BCFF` | |
+| `primary-text` | `#5746E0` | `#9D92FF` | Links |
+| `secondary` | `#EFEEE9` | `#222228` | Secondary button |
+| `muted` | `#F1F0EB` | `#1C1C21` | Neutral badges, skeletons, wells |
+| `muted-foreground` | `#5F5E66` | `#9D9CA6` | Secondary text |
+| `placeholder` | `#76757D` | `#82818B` | Input placeholder |
+| `accent` | `#F1F0EB` | `#212127` | Hover bg (ghost, menu items) |
+| `border` | `#E6E4DD` | `#26262D` | Cards, dividers |
+| `border-strong` | `#D0CEC6` | `#35353E` | Hover borders, outline buttons |
+| `input` | `#8A8992` | `#71707B` | Form control borders (≥3:1) |
+| `ring` | `#5746E0` | `#9D92FF` | Focus ring |
 | `destructive` | `#C42F29` | `#C93A33` | Errors |
 | `success` / `-soft` | `#16683F` / `#E5F3EB` | `#7FD3A2` / `#13261C` | |
 | `warning` / `-soft` | `#8A5200` / `#FBF0DC` | `#F2C26B` / `#2A2010` | |
 | `info` / `-soft` | `#0B627B` / `#E2F2F6` | `#7CCDE3` / `#0F2530` | |
-| `inverse` | `#181B1F` | `#1B2050` | Final CTA band |
-| `inverse-foreground` | `#F5F6F3` | `#ECEEEA` | |
-| `inverse-muted` | `#A9B0B7` | `#A9B0B7` | |
+| `inverse` | `#17161A` | `#1D1848` | Final CTA band |
+| `inverse-foreground` | `#FAFAF7` | `#EDEDF0` | |
+| `inverse-muted` | `#ACABB3` | `#ACABB3` | |
 
-All text pairs meet WCAG AA (checked). Slate on white 6.6:1, white on primary 7.8:1.
+All text pairs meet WCAG AA (checked). Muted text on background 6.1:1, white on primary 6.3:1 (light) and 5.4:1 (dark).
 
 ### Application status
 
 | Status | Text (L / D) | Bg (L / D) | Icon |
 |---|---|---|---|
-| Saved | `#4A5259` / `#A9B0B7` | `#ECEEEA` / `#1E2226` | `Bookmark` |
-| Applied | `#1F2BA8` / `#B9C0FF` | `#ECEEFD` / `#1B2050` | `Send` |
+| Saved | `#4E4D55` / `#ACABB3` | `#F1F0EB` / `#1C1C21` | `Bookmark` |
+| Applied | `#3D2FB0` / `#C3BCFF` | `#EFEDFE` / `#221C52` | `Send` |
 | Screening | `#0B627B` / `#7CCDE3` | `#E2F2F6` / `#0F2530` | `ScanSearch` |
 | Interview | `#8A5200` / `#F2C26B` | `#FBF0DC` / `#2A2010` | `CalendarClock` |
 | Offer | `#16683F` / `#7FD3A2` | `#E5F3EB` / `#13261C` | `BadgeCheck` |
@@ -87,26 +87,26 @@ All text pairs meet WCAG AA (checked). Slate on white 6.6:1, white on primary 7.
 
 ## 3. Typography
 
-**Font:** Instrument Sans (variable, weight 400–700, width 75–100). One family only. No monospace.
+**Fonts:** Geist (variable) for everything, plus Instrument Serif (`font-display`, weight 400 only) for headlines. No monospace.
 
-- Headlines (display → title) use `font-stretch-semi-condensed` (87.5%) — compact and technical.
-- Everything else normal width.
-- Weights: 400 body, 500 UI/labels/buttons, 600 headings/titles/salary. Never 700+.
+- Headlines (display → title) use `font-display` — always weight 400, never bold or italic.
+- Everything else is Geist.
+- Weights: 400 body, 500 UI/labels/buttons, 600 panel and job titles/salary. Never 700+.
 - Numbers (salary, counts, dates): `tabular-nums`.
 
 | Class | Size / line-height | Tracking | Weight | Use |
 |---|---|---|---|---|
-| `text-display` | 56 / 1.04 | -0.032em | 600 | Hero (lg+) |
-| `text-h1` | 44 / 1.08 | -0.028em | 600 | Hero (sm–md), final CTA |
-| `text-h2` | 32 / 1.15 | -0.022em | 600 | Section titles, hero (mobile) |
-| `text-title` | 26 / 1.2 | -0.018em | 600 | Section titles (mobile) |
-| `text-h3` | 22 / 1.3 | -0.015em | 600 | Panel titles |
-| `text-h4` | 17 / 1.4 | -0.01em | 600 | Job titles, step titles |
+| `text-display` | 72 / 1 | -0.02em | 400 | Hero (lg+) |
+| `text-h1` | 56 / 1.04 | -0.018em | 400 | Hero (sm–md), final CTA |
+| `text-h2` | 42 / 1.1 | -0.015em | 400 | Section titles, hero (mobile) |
+| `text-title` | 34 / 1.12 | -0.012em | 400 | Section titles (mobile) |
+| `text-h3` | 22 / 1.3 | -0.02em | 600 | Panel titles |
+| `text-h4` | 17 / 1.4 | -0.015em | 600 | Job titles, step titles |
 | `text-body-lg` | 18 / 1.6 | -0.005em | 400 | Hero + section intros |
 | `text-body` | 16 / 1.6 | 0 | 400 | Paragraphs |
 | `text-body-sm` | 14 / 1.45 | 0 | 400 | Product UI, buttons, inputs |
-| `text-label` | 13 / 1.3 | 0.005em | 500 | Labels, nav, chips, meta |
-| `text-caption` | 12 / 1.35 | 0.01em | 400 | Badges, timestamps |
+| `text-label` | 13 / 1.3 | 0 | 500 | Labels, nav, chips, meta |
+| `text-caption` | 12 / 1.35 | 0 | 400 | Badges, timestamps |
 
 **Responsive:** hero `text-h2 sm:text-h1 lg:text-display`; section title `text-title md:text-h2`; intros `text-body md:text-body-lg`.
 
@@ -146,10 +146,10 @@ Inside components: icon↔text `gap-1.5`, meta row `gap-x-4 gap-y-1.5`, button g
 | Radius | Value | Use |
 |---|---|---|
 | `rounded-xs` | 2px | Fit line segments |
-| `rounded-sm` | 4px | Badges, tags |
-| `rounded-md` | 6px | Buttons, inputs, chips, company mark, tracker cards |
-| `rounded-lg` | 8px | Job cards, popovers, search bar |
-| `rounded-xl` | 12px | Panels, product frames, dialogs |
+| `rounded-sm` | 6px | Badges, tags |
+| `rounded-md` | 8px | Buttons, inputs, chips, company mark, tracker cards |
+| `rounded-lg` | 10px | Job cards, popovers, search bar |
+| `rounded-xl` | 14px | Panels, product frames, dialogs |
 
 Nested elements get smaller radius than their parent. Nothing above `xl`. `rounded-full` only for avatars.
 

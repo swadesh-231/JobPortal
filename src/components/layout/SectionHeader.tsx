@@ -28,7 +28,7 @@ export function SectionHeader({
       <div>
         <h2
           id={id}
-          className="text-title font-stretch-semi-condensed md:text-h2"
+          className="text-title font-display md:text-h2"
         >
           {title}
         </h2>

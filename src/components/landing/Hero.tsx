@@ -14,13 +14,18 @@ const TRUST = [
 
 export function Hero() {
   return (
-    <Section id="top" labelledBy="hero-title">
+    <Section id="top" labelledBy="hero-title" className="relative isolate">
+      {/* Reaches up behind the transparent navbar */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 -top-14 -z-10 h-144 bg-glow"
+      />
       {/* Mobile order: headline, search, CTAs, trust, results */}
       <div className="flex flex-col lg:grid lg:grid-cols-12 lg:gap-x-16">
         <div className="order-1 sm:order-none lg:col-span-7">
           <h1
             id="hero-title"
-            className="text-h2 font-stretch-semi-condensed sm:text-h1 lg:text-display"
+            className="text-h2 font-display sm:text-h1 lg:text-display"
           >
             Find work that actually fits you.
           </h1>

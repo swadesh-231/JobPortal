@@ -1,20 +1,20 @@
 # 04 — Implementation
 
-Stack: React + TypeScript + Tailwind CSS v4 + shadcn/ui + Lucide React. No other UI or animation library.
+Stack: React + TypeScript + Tailwind CSS v4 + shadcn/ui + Lucide React. No other UI or animation library. Routing: React Router (`/`, `/login`, `/signup`). Auth: Supabase (`VITE_SUPABASE_URL`, `VITE_SUPABASE_PUBLISHABLE_KEY`).
 
 ## Setup
 
 ```bash
-npm i @fontsource-variable/instrument-sans lucide-react
+npm i @fontsource-variable/geist @fontsource/instrument-serif lucide-react react-router @supabase/supabase-js
 npx shadcn@latest add button input label badge card avatar dropdown-menu navigation-menu \
   dialog sheet select command popover tabs tooltip separator skeleton scroll-area \
   accordion collapsible checkbox radio-group toggle sonner alert
 ```
 
 ```ts
-// main.tsx (includes weight + width axes)
-import "@fontsource-variable/instrument-sans/wdth.css";
-// Next.js alternative: Instrument_Sans({ subsets: ["latin"], axes: ["wdth"], variable: "--font-instrument" })
+// main.tsx
+import "@fontsource-variable/geist";
+import "@fontsource/instrument-serif";
 ```
 
 ---
@@ -28,74 +28,77 @@ import "@fontsource-variable/instrument-sans/wdth.css";
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --radius: 0.5rem;
-  --background: #F5F6F3;  --foreground: #181B1F;
-  --card: #FFFFFF;        --card-foreground: #181B1F;
-  --popover: #FFFFFF;     --popover-foreground: #181B1F;
-  --primary: #2B3AD8;     --primary-foreground: #FFFFFF;
-  --primary-hover: #2430BC;
-  --primary-soft: #ECEEFD; --primary-soft-foreground: #1F2BA8;
-  --primary-text: #2B3AD8;
-  --secondary: #E9EBE7;   --secondary-foreground: #181B1F; --secondary-hover: #DFE2DD;
-  --muted: #ECEEEA;       --muted-foreground: #565E66;
-  --placeholder: #6C747C;
-  --accent: #ECEEEA;      --accent-foreground: #181B1F;
+  --radius: 0.625rem;
+  --background: #FAFAF7;  --foreground: #17161A;
+  --card: #FFFFFF;        --card-foreground: #17161A;
+  --popover: #FFFFFF;     --popover-foreground: #17161A;
+  --primary: #5746E0;     --primary-foreground: #FFFFFF;
+  --primary-hover: #4838C7;
+  --primary-soft: #EFEDFE; --primary-soft-foreground: #3D2FB0;
+  --primary-text: #5746E0;
+  --secondary: #EFEEE9;   --secondary-foreground: #17161A; --secondary-hover: #E6E4DE;
+  --muted: #F1F0EB;       --muted-foreground: #5F5E66;
+  --placeholder: #76757D;
+  --accent: #F1F0EB;      --accent-foreground: #17161A;
   --destructive: #C42F29; --destructive-soft: #FBEBEA;
   --success: #16683F;     --success-soft: #E5F3EB;
   --warning: #8A5200;     --warning-soft: #FBF0DC;
   --info: #0B627B;        --info-soft: #E2F2F6;
-  --border: #DFE2DC;      --border-strong: #C7CBC5;
-  --input: #858C93;       --ring: #2B3AD8;
-  --inverse: #181B1F;     --inverse-foreground: #F5F6F3; --inverse-muted: #A9B0B7;
+  --border: #E6E4DD;      --border-strong: #D0CEC6;
+  --input: #8A8992;       --ring: #5746E0;
+  --inverse: #17161A;     --inverse-foreground: #FAFAF7; --inverse-muted: #ACABB3;
+  --glow: rgb(87 70 224 / 0.14);
 
-  --status-saved: #4A5259;     --status-saved-soft: #ECEEEA;
-  --status-applied: #1F2BA8;   --status-applied-soft: #ECEEFD;
+  --status-saved: #4E4D55;     --status-saved-soft: #F1F0EB;
+  --status-applied: #3D2FB0;   --status-applied-soft: #EFEDFE;
   --status-screening: #0B627B; --status-screening-soft: #E2F2F6;
   --status-interview: #8A5200; --status-interview-soft: #FBF0DC;
   --status-offer: #16683F;     --status-offer-soft: #E5F3EB;
   --status-rejected: #8E3530;  --status-rejected-soft: #F8EAE8;
 
-  --elevation-xs: 0 1px 2px rgb(24 27 31 / 0.05);
-  --elevation-card: 0 1px 2px rgb(24 27 31 / 0.04), 0 4px 12px -4px rgb(24 27 31 / 0.08);
-  --elevation-elevated: 0 2px 4px rgb(24 27 31 / 0.04), 0 12px 32px -8px rgb(24 27 31 / 0.14);
-  --elevation-modal: 0 24px 64px -16px rgb(24 27 31 / 0.28);
+  --elevation-xs: 0 1px 2px rgb(23 22 26 / 0.05);
+  --elevation-card: 0 1px 2px rgb(23 22 26 / 0.04), 0 8px 20px -8px rgb(23 22 26 / 0.10);
+  --elevation-elevated: 0 2px 4px rgb(23 22 26 / 0.04), 0 24px 48px -16px rgb(23 22 26 / 0.16);
+  --elevation-modal: 0 24px 64px -16px rgb(23 22 26 / 0.28);
 }
 
 .dark {
-  --background: #0F1113;  --foreground: #ECEEEA;
-  --card: #16191C;        --card-foreground: #ECEEEA;
-  --popover: #1A1D21;     --popover-foreground: #ECEEEA;
-  --primary: #4F5EF0;     --primary-foreground: #FFFFFF;
-  --primary-hover: #6370F6;
-  --primary-soft: #1B2050; --primary-soft-foreground: #B9C0FF;
-  --primary-text: #8A95FF;
-  --secondary: #23272C;   --secondary-foreground: #ECEEEA; --secondary-hover: #2B3036;
-  --muted: #1E2226;       --muted-foreground: #9AA2AA;
-  --placeholder: #80888F;
-  --accent: #22262B;      --accent-foreground: #ECEEEA;
+  --background: #0C0C0F;  --foreground: #EDEDF0;
+  --card: #141418;        --card-foreground: #EDEDF0;
+  --popover: #18181D;     --popover-foreground: #EDEDF0;
+  --primary: #6352EA;     --primary-foreground: #FFFFFF;
+  --primary-hover: #7263F0;
+  --primary-soft: #221C52; --primary-soft-foreground: #C3BCFF;
+  --primary-text: #9D92FF;
+  --secondary: #222228;   --secondary-foreground: #EDEDF0; --secondary-hover: #2A2A31;
+  --muted: #1C1C21;       --muted-foreground: #9D9CA6;
+  --placeholder: #82818B;
+  --accent: #212127;      --accent-foreground: #EDEDF0;
   --destructive: #C93A33; --destructive-soft: #2C1716;
   --success: #7FD3A2;     --success-soft: #13261C;
   --warning: #F2C26B;     --warning-soft: #2A2010;
   --info: #7CCDE3;        --info-soft: #0F2530;
-  --border: #262A2F;      --border-strong: #343A40;
-  --input: #6F7882;       --ring: #8A95FF;
-  --inverse: #1B2050;     --inverse-foreground: #ECEEEA; --inverse-muted: #A9B0B7;
+  --border: #26262D;      --border-strong: #35353E;
+  --input: #71707B;       --ring: #9D92FF;
+  --inverse: #1D1848;     --inverse-foreground: #EDEDF0; --inverse-muted: #ACABB3;
+  --glow: rgb(99 82 234 / 0.22);
 
-  --status-saved: #A9B0B7;     --status-saved-soft: #1E2226;
-  --status-applied: #B9C0FF;   --status-applied-soft: #1B2050;
+  --status-saved: #ACABB3;     --status-saved-soft: #1C1C21;
+  --status-applied: #C3BCFF;   --status-applied-soft: #221C52;
   --status-screening: #7CCDE3; --status-screening-soft: #0F2530;
   --status-interview: #F2C26B; --status-interview-soft: #2A2010;
   --status-offer: #7FD3A2;     --status-offer-soft: #13261C;
   --status-rejected: #F0A29C;  --status-rejected-soft: #2C1716;
 
   --elevation-xs: 0 1px 2px rgb(0 0 0 / 0.4);
-  --elevation-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 12px -4px rgb(0 0 0 / 0.5);
-  --elevation-elevated: 0 2px 4px rgb(0 0 0 / 0.3), 0 16px 40px -8px rgb(0 0 0 / 0.6);
+  --elevation-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 20px -8px rgb(0 0 0 / 0.5);
+  --elevation-elevated: 0 2px 4px rgb(0 0 0 / 0.3), 0 24px 48px -16px rgb(0 0 0 / 0.6);
   --elevation-modal: 0 24px 64px -16px rgb(0 0 0 / 0.7);
 }
 
 @theme inline {
-  --font-sans: "Instrument Sans Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Instrument Serif", ui-serif, Georgia, serif;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -158,10 +161,11 @@ import "@fontsource-variable/instrument-sans/wdth.css";
 }
 
 @theme {
-  --text-display: 3.5rem;   --text-display--line-height: 1.04; --text-display--letter-spacing: -0.032em; --text-display--font-weight: 600;
-  --text-h1: 2.75rem;       --text-h1--line-height: 1.08;      --text-h1--letter-spacing: -0.028em;      --text-h1--font-weight: 600;
-  --text-h2: 2rem;          --text-h2--line-height: 1.15;      --text-h2--letter-spacing: -0.022em;      --text-h2--font-weight: 600;
-  --text-title: 1.625rem;   --text-title--line-height: 1.2;    --text-title--letter-spacing: -0.018em;   --text-title--font-weight: 600;
+  /* display → title are set in the serif display face (font-display), which has one weight */
+  --text-display: 4.5rem;   --text-display--line-height: 1;    --text-display--letter-spacing: -0.02em;  --text-display--font-weight: 400;
+  --text-h1: 3.5rem;        --text-h1--line-height: 1.04;      --text-h1--letter-spacing: -0.018em;      --text-h1--font-weight: 400;
+  --text-h2: 2.625rem;      --text-h2--line-height: 1.1;       --text-h2--letter-spacing: -0.015em;      --text-h2--font-weight: 400;
+  --text-title: 2.125rem;   --text-title--line-height: 1.12;   --text-title--letter-spacing: -0.012em;   --text-title--font-weight: 400;
   --text-h3: 1.375rem;      --text-h3--line-height: 1.3;       --text-h3--letter-spacing: -0.015em;      --text-h3--font-weight: 600;
   --text-h4: 1.0625rem;     --text-h4--line-height: 1.4;       --text-h4--letter-spacing: -0.01em;       --text-h4--font-weight: 600;
   --text-body-lg: 1.125rem; --text-body-lg--line-height: 1.6;  --text-body-lg--letter-spacing: -0.005em;

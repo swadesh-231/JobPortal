@@ -21,7 +21,7 @@ export function SignUpDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle className="text-h3 font-stretch-semi-condensed">
+          <DialogTitle className="text-h3">
             Create a free account to continue
           </DialogTitle>
           <DialogDescription className="text-body-sm text-muted-foreground">

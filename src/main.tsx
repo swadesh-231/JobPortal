@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import '@fontsource-variable/instrument-sans/wdth.css'
+import '@fontsource-variable/geist'
+import '@fontsource/instrument-serif'
 import './index.css'
 import App from './App.tsx'
 

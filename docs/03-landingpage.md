@@ -35,7 +35,7 @@ Mobile:  [Logo]                                                             [☰
 - Links: ghost `sm`, muted → foreground on hover; active `aria-current`.
 - Resources: NavigationMenu → Career guide, Blog, Interview prep (title + one-line description).
 - Mobile menu: right Sheet, links as `h-12` rows, Resources in Accordion, bottom: "Create account" (primary) + "Log in" (outline), full width.
-- Logo: 3 stacked bars of decreasing length (top bar `primary`) + "Shortlist" wordmark (`text-h4 font-semibold font-stretch-semi-condensed`).
+- Logo: 3 stacked bars of decreasing length (top bar `primary`) + "Shortlist" wordmark (`text-h4 font-semibold tracking-tight`).
 
 ---
 

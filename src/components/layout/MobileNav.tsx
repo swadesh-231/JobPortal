@@ -1,5 +1,7 @@
 import { useState } from "react"
+import type { Session } from "@supabase/supabase-js"
 import { Menu } from "lucide-react"
+import { Link } from "react-router"
 import {
   Accordion,
   AccordionContent,
@@ -16,12 +18,19 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { siteConfig } from "@/config/site"
+import { logOut } from "@/lib/supabase"
 import { cn } from "@/lib/utils"
 
 const rowClass =
   "flex h-12 items-center rounded-md px-3 text-body font-medium outline-none hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring"
 
-export function MobileNav({ className }: { className?: string }) {
+export function MobileNav({
+  session,
+  className,
+}: {
+  session: Session | null
+  className?: string
+}) {
   const [open, setOpen] = useState(false)
   const close = () => setOpen(false)
   const [jobs, companies, pricing] = siteConfig.nav
@@ -75,12 +84,32 @@ export function MobileNav({ className }: { className?: string }) {
           </a>
         </nav>
         <div className="flex flex-col gap-3 border-t border-border p-4">
-          <Button size="lg" asChild>
-            <a href={siteConfig.routes.signUp}>Create account</a>
-          </Button>
-          <Button size="lg" variant="outline" asChild>
-            <a href={siteConfig.routes.logIn}>Log in</a>
-          </Button>
+          {session ? (
+            <>
+              <p className="truncate text-body-sm text-muted-foreground">
+                {session.user.email}
+              </p>
+              <Button
+                size="lg"
+                variant="outline"
+                onClick={() => {
+                  close()
+                  logOut()
+                }}
+              >
+                Log out
+              </Button>
+            </>
+          ) : (
+            <>
+              <Button size="lg" asChild>
+                <Link to={siteConfig.routes.signUp}>Create account</Link>
+              </Button>
+              <Button size="lg" variant="outline" asChild>
+                <Link to={siteConfig.routes.logIn}>Log in</Link>
+              </Button>
+            </>
+          )}
         </div>
       </SheetContent>
     </Sheet>

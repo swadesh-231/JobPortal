@@ -55,7 +55,7 @@ export function ValueProposition() {
         <div className="lg:col-span-4">
           <h2
             id="why-title"
-            className="text-title font-stretch-semi-condensed md:text-h2"
+            className="text-title font-display md:text-h2"
           >
             Most job sites stop at the listing.
           </h2>

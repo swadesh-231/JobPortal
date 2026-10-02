@@ -1,3 +1,4 @@
+import { Link } from "react-router"
 import { ThemeToggle } from "@/components/shared/ThemeToggle"
 import { Button } from "@/components/ui/button"
 import {
@@ -10,7 +11,9 @@ import {
 } from "@/components/ui/navigation-menu"
 import { siteConfig } from "@/config/site"
 import { useScrolled } from "@/hooks/useScrolled"
+import { useSession } from "@/hooks/useSession"
 import { cn } from "@/lib/utils"
+import { AccountMenu } from "./AccountMenu"
 import { Container } from "./Container"
 import { Logo } from "./Logo"
 import { MobileNav } from "./MobileNav"
@@ -34,6 +37,7 @@ function NavLink({ href, label }: { href: string; label: string }) {
 
 export function Navbar() {
   const [sentinelRef, scrolled] = useScrolled()
+  const session = useSession()
   const [jobs, companies, pricing] = siteConfig.nav
 
   return (
@@ -87,18 +91,24 @@ export function Navbar() {
           </NavigationMenu>
           <div className="ml-auto flex items-center gap-2">
             <ThemeToggle />
-            <Button
-              variant="ghost"
-              size="sm"
-              className="hidden sm:inline-flex"
-              asChild
-            >
-              <a href={siteConfig.routes.logIn}>Log in</a>
-            </Button>
-            <Button size="sm" className="hidden sm:inline-flex" asChild>
-              <a href={siteConfig.routes.signUp}>Create account</a>
-            </Button>
-            <MobileNav className="lg:hidden" />
+            {session ? (
+              <AccountMenu session={session} className="hidden sm:inline-flex" />
+            ) : (
+              <>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="hidden sm:inline-flex"
+                  asChild
+                >
+                  <Link to={siteConfig.routes.logIn}>Log in</Link>
+                </Button>
+                <Button size="sm" className="hidden sm:inline-flex" asChild>
+                  <Link to={siteConfig.routes.signUp}>Create account</Link>
+                </Button>
+              </>
+            )}
+            <MobileNav session={session} className="lg:hidden" />
           </div>
         </Container>
       </header>

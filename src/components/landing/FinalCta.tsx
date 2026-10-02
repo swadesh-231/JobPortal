@@ -16,7 +16,7 @@ export function FinalCta() {
           <LogoMark inverse />
           <h2
             id="cta-title"
-            className="mt-6 text-title font-stretch-semi-condensed sm:text-h1"
+            className="mt-6 text-title font-display sm:text-h1"
           >
             Your search, ranked and tracked.
           </h2>

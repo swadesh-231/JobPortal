@@ -33,7 +33,7 @@ export function JobDetailPane({
       <div className="flex items-start gap-3">
         <CompanyMark company={job.company} size="lg" />
         <div className="min-w-0">
-          <h3 className="text-h3 font-stretch-semi-condensed">{job.title}</h3>
+          <h3 className="text-h3">{job.title}</h3>
           <p className="text-body-sm font-medium">{job.company.name}</p>
         </div>
       </div>

@@ -34,7 +34,7 @@ export function Logo({ className }: { className?: string }) {
       )}
     >
       <LogoMark />
-      <span className="text-h4 font-semibold font-stretch-semi-condensed">
+      <span className="text-h4 font-semibold tracking-tight">
         {siteConfig.name}
       </span>
     </a>
